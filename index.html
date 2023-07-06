@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS gyakorlo 8</title>
+</head>
+<body>
+<!-- --------------------------------LEGÖRDÜLŐ LISTA ELEMEINEK KIVÁLASZTÁSA INDEX ALAPJÁN----------------------->
+    <form>
+        <select id = "jatekok">
+            <option>baba</option>
+            <option>kisauto</option>
+            <option>plüss</option>
+            <option>kirakós játék</option>
+            <option>elektromos játék</option>
+            <option>építő játék</option>
+            <option>mesekönyvek</option>
+            <option>interaktív játék</option>
+            <option>kifestő</option>
+            <option>társasjáték</option>
+        </select>
+        <input type="button" onclick="gomb1()" value="A kiválasztott elem indexe">
+    </form>
+
+    <p id = "demo1"></p>
+
+    <script>
+        function gomb1(){
+            let i = document.getElementById("jatekok");        
+            document.getElementById("demo1").innerHTML = i.selectedIndex + 1;
+        }
+    </script>
+<hr>
+<br>
+<!-- ---------------------------------KIVÁLASZTOTT ELEM ELTÁVOLÍTÁSA ----------------------------------------->
+
+<!-- <input type ="button" onclick = "gomb2()" value = " Kiválasztott elem törlése"> -->
+
+    <button onclick = "gomb2()">Kiválasztott elem törlése</button>
+    <p id = "demo2"></p>
+
+    <script>
+        function gomb2(){
+            let r = document.getElementById("jatekok");
+            r.remove(r.selectedIndex);                              
+        }
+    </script>
+<hr>
+<br>
+<!-- -----------------------------------KIVÁLASZTOTT ELEM MEGJELENÍTÉSE ------------------------------------------>
+
+<button onclick = "gomb3()">Válasszon egy játékot</button>
+<p id = "demo3"></p>
+
+<script>
+function gomb3(){
+    let elem = document.getElementById("jatekok");
+    document.getElementById("demo3").innerHTML = elem.options[elem.selectedIndex].text;
+}
+</script>
+<hr>
+<br>
+<!-- -----------------------------------LEGÖRDÜLŐ TELJES LISTA MEGJELENÍTÉSE -------------------------------------->
+
+<input type="button" onclick="gomb4()" value = "Teljes lista">
+<p id = "demo4"></p>
+<script>
+    function gomb4(){
+        let elem = document.getElementById("jatekok");
+        let elemek = "";
+        let i;
+        for ( i = 0; i < elem.length; i++){
+            elemek = elemek + " " + elem.options[i].text;
+        }
+        document.getElementById("demo4").innerHTML = elemek;
+    }
+</script>
+</body>
+</html>
+
+<!-- remove - eltávolítás 
+     selectedIndex - kiválasztás index szerint
+    -->
